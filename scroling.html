@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            width: 500px;
+            height: 600px;
+            border: 2px solid red;
+            margin: auto;
+            border-radius: 8px;
+            overflow: scroll;
+            text-align: center;
+        }
+        #top{
+            position: absolute;
+            top:15px;
+            right: 25%;
+            border: 2px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="cont"></div>
+    <div id="top">top</div>
+</body>
+</html>
+<script>
+    let counter=1;
+    document.getElementById("top").addEventListener("click",()=>{
+        document.getElementById("cont").scrollTop=0;
+    })
+    addStudents();
+    let scroll= document.getElementById("cont");
+  scroll.addEventListener("scroll",()=>{
+    if(scroll.offsetHeight+scroll.scrollTop>=scroll.scrollHeight){
+        addStudents();
+    }
+   })
+    function addStudents(){
+        var cont=document.getElementById("cont");
+        for(let i=0;i<25;i++){
+            let div=document.createElement("div");
+            div.innerHTML=`<h3>masai student ${counter++}</h3>`
+            cont.append(div)
+        }
+    }
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 500px;
+            height: 550px;
+            background: gray;
+            margin: auto;
+            display: flex;
+            gap: 10%;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #main>div{
+            height: 20px;
+            padding: 5px 10px;
+            background: white;
+        }
+        #main>div:hover{
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #models{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            top:10%;
+            left:20%;
+            background: white;
+            border: 2px slid red;
+            display: none;
+        }
+        #accepte{
+            background: green;
+        }
+        #decline{
+            background: red;
+        }
+        #close{
+            color: red;
+            position: absolute;
+            top: 10%;
+            right: 10%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="model-1">Model-1</div>
+        <div id="model-2">Model-2</div>
+        <div id="model-3">Model-3</div>
+       
+    </div>
+    <div id="models"><h1>model</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quos illum eum reprehenderit illo alias dicta voluptatibus atque. Error, numquam!</p>
+    </div>
+    
+</body>
+</html>
+<script>
+    let modesOne=document.getElementById("model-1");
+    let modesTwo=document.getElementById("model-2");
+    let modesThree=document.getElementById("model-3");
+    modesOne.addEventListener('click',()=>{
+        model(1)
+    })
+    modesTwo.addEventListener('click',()=>{
+        model(2)
+    })
+    modesThree.addEventListener('click',()=>{
+        model(3)
+    })
+    function model(m){
+        let models=document.getElementById("models")
+        models.innerHTML=""
+        models.innerHTML=`<h1>model - ${m}</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quos illum eum reprehenderit illo alias dicta voluptatibus atque. Error, numquam!</p>
+            <button id="accepte">Accepted</button>
+            <button id="decline">Decline</button>
+            <button id="close">X</button>
+       `
+       document.getElementById("close").addEventListener("click",()=>{
+        models.style.display="none"
+       })
+       models.style.display="block"
+    }
+</script>
